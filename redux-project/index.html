@@ -9,5 +9,11 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script>
+      const redirectTo = window.location.pathname.split('/')[1];
+      if (redirectTo !== "") {
+        window.location.href = `/${redirectTo}`;
+      }
+    </script>
   </body>
 </html>
