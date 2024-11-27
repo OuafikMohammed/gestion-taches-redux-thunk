@@ -9,7 +9,7 @@ import store from './App/store.js';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
+    <BrowserRouter basename="/gestion-taches-redux-thunk">
       <Routes>
         <Route path='/' element={<App />} />
       </Routes>
