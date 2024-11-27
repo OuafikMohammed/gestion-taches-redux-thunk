@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ajouterTache, modifierTache, supprimerTache, fetchTaches } from './Redux/Actions/tacheAction';
+import { ajouterTache, modifierTache, supprimerTache, fetchTaches } from './features/tachesReducer/tachesReducer';
+
 
 const TaskManager = () => {
   const [newTask, setNewTask] = useState({ libelle: '', dateDebut: '', dateFin: '' });
   const [editTask, setEditTask] = useState({ id: '', libelle: '', dateDebut: '', dateFin: '', terminer: false });
   const [filteredTasks, setFilteredTasks] = useState([]);
   const dispatch = useDispatch();
-  const tasks = useSelector(state => state.tachesReducer.tasks);
-  const todos = useSelector(state => state.tachesReducer.todos);
+  const { tasks, todos } = useSelector(state => state.taches); // Accès au slice 'taches'
 
   useEffect(() => {
     dispatch(fetchTaches());
